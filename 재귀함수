@@ -1,0 +1,25 @@
+//재귀함수 예제 공부
+// 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴해야 합니다.
+// 입출력 예시
+
+//let output = flattenArr([[1], 2, [3, 4], 5]);
+//console.log(output); // --> [1, 2, 3, 4, 5]
+//output = flattenArr([[2, [[3]]], 4, [[[5]]]);
+//console.log(output); // --> [2, 3, 4, 5]
+
+
+function test(arr){
+// arr 가 빈배열일 경우
+if(arr.length === 0){
+  return [];
+} 
+// 구조분해 할당을 이용해서
+  const head = arr[0]
+  const tail = arr.slice(1)
+if(Array.isArray(head)){
+    return flattenArr([...head,...tail]). // 구조분해 할당으로 배열를 해제하고 그걸 다시 배열로 감싸서 리턴을 해준다.
+    }
+    else{
+      return [head].concat(flattenArr(tail))
+    }
+}
